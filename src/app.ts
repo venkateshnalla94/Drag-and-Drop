@@ -1,8 +1,5 @@
 // Code goes here!
 
-/// <reference  path="./component/project-input.ts" />
-/// <reference  path="./component/project-list.ts" />
-
 ///
 
 //Project State managment
@@ -18,8 +15,8 @@
 // Project List class
 
 //Project Input Class
-import { ProjectInput } from "./component/project-input.js";
-import { ProjectList } from "./component/project-list.js";
+import { ProjectInput } from "./component/project-input";
+import { ProjectList } from "./component/project-list";
 
 new ProjectInput();
 new ProjectList("active");
