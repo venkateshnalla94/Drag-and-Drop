@@ -84,7 +84,7 @@ function Validate(validateInput: Validatable) {
     isValid = isValid && validateInput.value.length <= validateInput.maxLength;
   }
   if (validateInput.min != null && typeof validateInput.value === "number") {
-    isValid = isValid && validateInput.value > validateInput.min;
+    isValid = isValid && validateInput.value >= validateInput.min;
   }
   if (validateInput.max != null && typeof validateInput.value === "number") {
     isValid = isValid && validateInput.value < validateInput.max;
@@ -145,7 +145,13 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
 //ProjectItem class
 class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
   private project: Project;
-
+  get persons() {
+    if (this.project.people === 1) {
+      return ` 1 person`;
+    } else {
+      return `${this.project.people} people`;
+    }
+  }
   constructor(hostId: string, project: Project) {
     super("single-project", hostId, false, project.id);
     this.project = project;
@@ -155,8 +161,7 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
   configure() {}
   renderContent(): void {
     this.element.querySelector("h2")!.textContent = this.project.title;
-    this.element.querySelector("h3")!.textContent =
-      this.project.people.toString();
+    this.element.querySelector("h3")!.textContent = this.persons + " assigned";
     this.element.querySelector("p")!.textContent = this.project.description;
   }
 }
