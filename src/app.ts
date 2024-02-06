@@ -5,22 +5,22 @@
 
 ///
 
-namespace App {
-  //Project State managment
+//Project State managment
 
-  //Validator
+//Validator
 
-  //Auto binder
+//Auto binder
 
-  //Component Base Class
+//Component Base Class
 
-  //ProjectItem class
+//ProjectItem class
 
-  // Project List class
+// Project List class
 
-  //Project Input Class
+//Project Input Class
+import { ProjectInput } from "./component/project-input.js";
+import { ProjectList } from "./component/project-list.js";
 
-  new ProjectInput();
-  new ProjectList("active");
-  new ProjectList("finished");
-}
+new ProjectInput();
+new ProjectList("active");
+new ProjectList("finished");
